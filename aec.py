@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import argparse
 
 from keras.datasets import cifar10, mnist
@@ -211,7 +212,7 @@ def load_model_from_file(filename):
 
         Expects a particular filename format.
     """
-    components = filename.split('-')
+    components = filename.rsplit('/', maxsplit=1)[-1].split('-')
     model_name = components[0]
     dataset_name = components[1][1:]
     dimensions = components[2][1:]
